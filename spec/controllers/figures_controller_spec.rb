@@ -94,10 +94,13 @@ describe FiguresController do
     @figure = Figure.first
     get "/figures/#{@figure.id}/edit"
 
+
+
     expect(last_response.status).to eq(200)
     expect(last_response.body).to include('<form')
     expect(last_response.body).to include('figure[name]')
     expect(last_response.body).to include('figure[title_ids]')
+    # binding.pry
     expect(last_response.body).to include(@figure.name)    
   end
 
